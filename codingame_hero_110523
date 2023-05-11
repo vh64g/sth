@@ -1,0 +1,17 @@
+import sys
+import math
+
+
+w, h = [int(i) for i in input().split()]
+n = int(input()) 
+x0, y0 = [int(i) for i in input().split()]
+
+while True:
+    bomb_dir = str(input())
+
+    v_rate = (h-y0)/2; h_rate = (w-x0)/2
+
+    x0+=h_rate if "R" in bomb_dir else -h_rate if "L" in bomb_dir else 0
+    y0+=v_rate if "D" in bomb_dir else -v_rate if "U" in bomb_dir else 0
+    
+    print(f"{min(w, max(0, int(x0)))} {min(h, max(0, int(y0)))}")
